@@ -1,0 +1,14 @@
+m_cpremier_homepage:
+    path:     /
+    defaults: { _controller: MCpremierBundle:Default:index }
+
+
+hello_the_world:
+
+    path:     /hello-world
+    defaults: {_controller: MCpremierBundle:Default:index }
+
+
+premier_pas:
+    path:     /first
+    defaults: {_controller: MCpremierBundle:Mc:index }
