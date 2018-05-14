@@ -104,7 +104,7 @@ class Flight
 
 
 public function __toString(){
-  return $this->departure.' '.$this->arrival;
+  return $this->departure.'/ '.$this->arrival;
 }
 
 

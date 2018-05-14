@@ -104,7 +104,7 @@ class Flight
 
 
 public function __toString(){
-  return $this->departure.' '.$this->arrival;
+  return $this->departure.'/ '.$this->arrival;
 }
 
 
@@ -359,5 +359,46 @@ public function __toString(){
     public function getPilot()
     {
         return $this->pilot;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->flights = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add flight
+     *
+     * @param \AppBundle\Entity\Reservation $flight
+     *
+     * @return Flight
+     */
+    public function addFlight(\AppBundle\Entity\Reservation $flight)
+    {
+        $this->flights[] = $flight;
+
+        return $this;
+    }
+
+    /**
+     * Remove flight
+     *
+     * @param \AppBundle\Entity\Reservation $flight
+     */
+    public function removeFlight(\AppBundle\Entity\Reservation $flight)
+    {
+        $this->flights->removeElement($flight);
+    }
+
+    /**
+     * Get flights
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFlights()
+    {
+        return $this->flights;
     }
 }
