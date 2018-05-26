@@ -31,6 +31,4 @@ class PlopType extends AbstractType
     {
         return 'appbundle_plop';
     }
-
-
 }

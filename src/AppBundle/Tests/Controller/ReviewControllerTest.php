@@ -12,5 +12,4 @@ class ReviewControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/review');
     }
-
 }

@@ -60,9 +60,10 @@ class Review
 
 
 
-      public function __toString(){
+    public function __toString()
+    {
         return $this->id;
-      }
+    }
 
     /**
      * Get id

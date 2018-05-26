@@ -8,16 +8,10 @@ class McController extends Controller
     public function indexAction()
     {
 
-        $contents = $this->get('templating')->render('MCpremierBundle:Mc:index.html.twig',
-
-          ['toto'=>'riri']
-
-      );
+        $contents = $this->get('templating')->render(
+            'MCpremierBundle:Mc:index.html.twig',
+            ['toto'=>'riri']
+        );
           return new Response($content);
-
-
     }
-
-
-
 }

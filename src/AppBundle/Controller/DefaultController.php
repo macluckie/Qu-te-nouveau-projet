@@ -28,12 +28,10 @@ class DefaultController extends Controller
      */
     public function testAction(Request $request)
     {
-      $toto = "test route avec les annotations";
+        $toto = "test route avec les annotations";
         // replace this example code with whatever you need
         return $this->render('default/test.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
-
-
 }

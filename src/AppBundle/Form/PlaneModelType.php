@@ -31,6 +31,4 @@ class PlaneModelType extends AbstractType
     {
         return 'appbundle_planemodel';
     }
-
-
 }

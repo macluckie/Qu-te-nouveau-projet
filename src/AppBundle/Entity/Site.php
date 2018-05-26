@@ -62,18 +62,19 @@ class Site
     /**
       * @ORM\OneToMany(targetEntity="Flight", mappedBy="departure")
       */
-      private $departures;
+    private $departures;
 
 
 
       /**
         * @ORM\OneToMany(targetEntity="Flight", mappedBy="arrival")
         */
-         private $arrivals;
+    private $arrivals;
 
-      public function __toString(){
+    public function __toString()
+    {
         return $this->name;
-      }
+    }
 
 
     /**

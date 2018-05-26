@@ -31,6 +31,4 @@ class ReservationType extends AbstractType
     {
         return 'appbundle_reservation';
     }
-
-
 }

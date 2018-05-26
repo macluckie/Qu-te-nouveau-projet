@@ -47,20 +47,21 @@ class Reservation
       * @ORM\ManyToOne(targetEntity="User", inversedBy="passengers")
       * @ORM\JoinColumn(nullable=false)
       */
-       private $passenger;
+    private $passenger;
 
 
        /**
          * @ORM\ManyToOne(targetEntity="Flight", inversedBy="flights")
          * @ORM\JoinColumn(nullable=false)
          */
-          private $flight;
+    private $flight;
 
 
 
 
-    public function __toString(){
-      return $this->id;
+    public function __toString()
+    {
+        return $this->id;
     }
 
 

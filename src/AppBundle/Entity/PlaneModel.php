@@ -60,11 +60,12 @@ class PlaneModel
     /**
       * @ORM\OneToMany(targetEntity="Flight", mappedBy="plane")
       */
-       private $planes;
+    private $planes;
 
-        public function __toString(){
+    public function __toString()
+    {
         return  $this->model;
-        }
+    }
 
 
     /**

@@ -68,28 +68,28 @@ class Flight
       * @ORM\ManyToOne(targetEntity="Site", inversedBy="departures")
       * @ORM\JoinColumn(nullable=false)
       */
-       private $departure;
+    private $departure;
 
 
        /**
          * @ORM\ManyToOne(targetEntity="Site", inversedBy="arrivals")
          * @ORM\JoinColumn(nullable=false)
          */
-          private $arrival;
+    private $arrival;
 
 
           /**
             * @ORM\ManyToOne(targetEntity="PlaneModel", inversedBy="planes")
             * @ORM\JoinColumn(nullable=false)
             */
-             private $plane;
+    private $plane;
 
 
              /**
                * @ORM\ManyToOne(targetEntity="User", inversedBy="pilots")
                * @ORM\JoinColumn(nullable=false)
                */
-                private $pilot;
+    private $pilot;
 
 
 
@@ -97,15 +97,16 @@ class Flight
                 /**
                   * @ORM\OneToMany(targetEntity="Reservation", mappedBy="flight")
                   */
-                  private $flights;
+    private $flights;
 
 
 
 
 
-public function __toString(){
-  return $this->departure.'/ '.$this->arrival;
-}
+    public function __toString()
+    {
+        return $this->departure.'/ '.$this->arrival;
+    }
 
 
 

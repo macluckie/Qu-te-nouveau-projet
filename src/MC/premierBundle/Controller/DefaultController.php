@@ -10,7 +10,4 @@ class DefaultController extends Controller
     {
         return $this->render('MCpremierBundle:Default:index.html.twig');
     }
-
-
-
 }

@@ -31,6 +31,4 @@ class SiteType extends AbstractType
     {
         return 'appbundle_site';
     }
-
-
 }

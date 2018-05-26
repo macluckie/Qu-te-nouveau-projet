@@ -80,22 +80,23 @@ class User
     /**
       * @ORM\OneToMany(targetEntity="Flight", mappedBy="pilot")
       */
-       private $pilots;
+    private $pilots;
 
 
 
        /**
          * @ORM\OneToMany(targetEntity="Reservation", mappedBy="passenger")
          */
-         private $passengers;
+    private $passengers;
 
 
 
 
 
 
-    public function __toString(){
-      return $this->firstName.' '.$this->lastName;
+    public function __toString()
+    {
+        return $this->firstName.' '.$this->lastName;
     }
 
 
