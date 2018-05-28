@@ -7,6 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Service\FlightInfo;
+use AppBundle\Entity\PlaneModel;
+
 
 /**
  * Flight controller.
@@ -64,13 +67,34 @@ class FlightController extends Controller
      * @Route("/{id}", name="flight_show")
      * @Method("GET")
      */
-    public function showAction(Flight $flight)
+    public function showAction(Flight $flight, FlightInfo $flightInfo )
     {
-        $deleteForm = $this->createDeleteForm($flight);
 
+
+
+        $speed = $flight->getPlane()->getCruiseSpeed();
+
+      $distance = $flightInfo->getDistance(
+        $flight->getDeparture()->getLatitude(),
+        $flight->getDeparture()->getLongitude(),
+        $flight->getArrival()->getLatitude(),
+        $flight->getArrival()->getLongitude());
+
+
+      var_dump($speed);
+
+        $timeFly = $flightInfo->getTime($distance,
+      $speed);
+
+        $deleteForm = $this->createDeleteForm($flight);
+          $speedUnit = "km/h";
         return $this->render('flight/show.html.twig', array(
             'flight' => $flight,
             'delete_form' => $deleteForm->createView(),
+            'distance'=>$distance,
+            'timefly'=>$timeFly,
+            'speedunit'=>$speedUnit,
+
         ));
     }
 
