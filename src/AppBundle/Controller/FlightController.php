@@ -89,7 +89,7 @@ class FlightController extends Controller
         );
 
         $deleteForm = $this->createDeleteForm($flight);
-          $speedUnit = "km/h";
+          $speedUnit = "heures";
         return $this->render('flight/show.html.twig', array(
             'flight' => $flight,
             'delete_form' => $deleteForm->createView(),
