@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Service\FlightInfo;
 use AppBundle\Entity\PlaneModel;
 
-
 /**
  * Flight controller.
  *
@@ -67,24 +66,27 @@ class FlightController extends Controller
      * @Route("/{id}", name="flight_show")
      * @Method("GET")
      */
-    public function showAction(Flight $flight, FlightInfo $flightInfo )
+    public function showAction(Flight $flight, FlightInfo $flightInfo)
     {
 
 
 
         $speed = $flight->getPlane()->getCruiseSpeed();
 
-      $distance = $flightInfo->getDistance(
-        $flight->getDeparture()->getLatitude(),
-        $flight->getDeparture()->getLongitude(),
-        $flight->getArrival()->getLatitude(),
-        $flight->getArrival()->getLongitude());
+        $distance = $flightInfo->getDistance(
+            $flight->getDeparture()->getLatitude(),
+            $flight->getDeparture()->getLongitude(),
+            $flight->getArrival()->getLatitude(),
+            $flight->getArrival()->getLongitude()
+        );
 
 
-      var_dump($speed);
+        var_dump($speed);
 
-        $timeFly = $flightInfo->getTime($distance,
-      $speed);
+        $timeFly = $flightInfo->getTime(
+            $distance,
+            $speed
+        );
 
         $deleteForm = $this->createDeleteForm($flight);
           $speedUnit = "km/h";
