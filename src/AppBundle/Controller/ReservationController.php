@@ -47,7 +47,21 @@ class ReservationController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($reservation);
+
             $em->flush();
+
+            $message = (new \Swift_Message('Réservation Flyaround'))
+          ->setFrom('reservations@flyaround.com')
+          ->setTo('macluckie@hotmail.fr')
+          ->setBody('Quelqu\'un vient de réserver une place sur votre vol.<br/>Merci de voyager avec Flyaround', 'text/html');
+      $this->get('mailer')->send($message);
+
+      $message = (new \Swift_Message('Réservation Flyaround'))
+        ->setFrom('reservations@flyaround.com')
+        ->setTo('macluckie@hotmail.fr')
+        ->setBody('Votre réservation est enregistrée.<br/>Merci de voyager avec Flyaround', 'text/html');
+    $this->get('mailer')->send($message);
+
 
             return $this->redirectToRoute('reservation_show', array('id' => $reservation->getId()));
         }
