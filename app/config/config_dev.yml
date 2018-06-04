@@ -38,4 +38,7 @@ monolog:
         #    level: info
 
 swiftmailer:
+  transport: gmail
+  username: dimitri.macluckie
+  password: dimitrou
   delivery_addresses: ['dimitri.macluckie@gmail.com']
