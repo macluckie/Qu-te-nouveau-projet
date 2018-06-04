@@ -53,11 +53,11 @@ class ReservationController extends Controller
       $em->persist($reservation);
 
       $em->flush();
-      
 
 
-      $mySend->sendEmail('dimitri.macluckie@gmail.com', 'reservationconfirmation', $user->getFirstName());
-      $mySend->sendEmail('dimitri.macluckie@gmail.com', 'reservation', $user->getFirstName());
+
+      $mySend->sendEmail($this->getUser()->getEmail(), 'reservationconfirmation', $user->getFirstName());
+      $mySend->sendEmail($reservation->getFlight()->getPilot()->getEmail(), 'reservation', $user->getFirstName());
 
 
 
