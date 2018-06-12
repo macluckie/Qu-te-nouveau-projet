@@ -3,15 +3,21 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * User
  *
- * @ORM\Table(name="user")
+ * @ORM\Table(name="`user`")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User
+class User  extends BaseUser
 {
+
+
+
+
+
     /**
      * @var int
      *
@@ -19,7 +25,7 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -158,7 +164,7 @@ class User
         return $this->lastName;
     }
 
-    /**
+    /**FormType RegistrationType a été créé.
      * Set phoneNumber
      *
      * @param string $phoneNumber
@@ -277,12 +283,16 @@ class User
     {
         return $this->isCertifiedPilot;
     }
+
+
     /**
      * Constructor
      */
     public function __construct()
     {
         $this->reviewAuthors = new \Doctrine\Common\Collections\ArrayCollection();
+        parent::__construct();
+
     }
 
     /**
