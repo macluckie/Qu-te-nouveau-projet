@@ -32,68 +32,68 @@ class User  extends BaseUser
      *
      * @ORM\Column(name="firstName", type="string", length=32)
      */
-    private $firstName;
+    protected $firstName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="lastName", type="string", length=32)
      */
-    private $lastName;
+    protected $lastName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="phoneNumber", type="string", length=32)
      */
-    private $phoneNumber;
+    protected $phoneNumber;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="birthDate", type="date")
      */
-    private $birthDate;
+    protected $birthDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="creationDate", type="datetime")
+     * @ORM\Column(name="creationDate", type="datetime", nullable = true)
      */
-    private $creationDate;
+    protected $creationDate;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="note", type="smallint")
+     * @ORM\Column(name="note", type="smallint", nullable = true)
      */
-    private $note;
+    protected $note;
 
     /**
      * @var bool
      *
      * @ORM\Column(name="isCertifiedPilot", type="boolean")
      */
-    private $isCertifiedPilot;
+    protected $isCertifiedPilot;
 
     /**
      * @ORM\OneToMany(targetEntity="Review", mappedBy="reviewAuthor")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $reviewAuthors;
+    protected $reviewAuthors;
 
 
     /**
       * @ORM\OneToMany(targetEntity="Flight", mappedBy="pilot")
       */
-    private $pilots;
+    protected $pilots;
 
 
 
        /**
          * @ORM\OneToMany(targetEntity="Reservation", mappedBy="passenger")
          */
-    private $passengers;
+    protected $passengers;
 
 
 
