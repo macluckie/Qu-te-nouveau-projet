@@ -1,13 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'templatemail.html.twig' %}
 
 
-{% block body %}
-
-bonjour {{name}}
-<p>
-Votre réservation est enregistrée.<br/>Merci de voyager avec Flyaround
-</p>
 
 
+{% block com %}
+    <p>bonjour {{name}} </p>
+    Votre réservation est enregistrée.<br/>Merci de voyager avec Flyaround
 
 {% endblock %}
+
+
+
